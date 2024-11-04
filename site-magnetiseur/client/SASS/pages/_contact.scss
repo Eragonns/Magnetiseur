@@ -1,0 +1,48 @@
+.contact_title {
+  text-align: center;
+  margin-block: 1em;
+}
+.contact_form {
+  display: flex;
+  flex-flow: column nowrap;
+  inline-size: 90%;
+  margin-inline: auto;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 2em;
+}
+
+.contact_form_input {
+  padding-inline-start: 0.5em;
+  border-radius: 6px;
+}
+
+.contact_form_input:focus {
+  outline-color: $black;
+}
+.contact_form_block {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-block: 0.3em;
+}
+.contact_form_text {
+  height: 5em;
+  margin-block-end: 1em;
+  padding-inline-start: 0.5em;
+}
+.contact_form_text:focus {
+  outline-color: $black;
+}
+
+.contact_form_btn {
+  border-radius: 5px;
+  padding-block: 0.4em;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.contact_form_btn:hover {
+  background-color: $darkBlue;
+  color: $white;
+}

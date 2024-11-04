@@ -1,0 +1,439 @@
+/*abstract*/
+/*base*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  cursor: default;
+}
+
+/*conponements*/
+.burgerBtn_menu {
+  position: relative;
+}
+
+.burgerBtn_icon {
+  height: 30px;
+  font-size: 2em;
+  display: flex;
+  padding-inline-end: 0.5em;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1000;
+  color: #ffffff;
+}
+
+.burgerBtn_title {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.6em;
+}
+
+.burgerBtn_links {
+  position: fixed;
+  top: 0;
+  left: -400px;
+  width: 100%;
+  height: 100vh;
+  background-color: #110c5f;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.3s linear;
+  z-index: 999;
+}
+
+.burgerBtn_links.open {
+  left: 0;
+}
+
+.burgerBtn_links ul {
+  list-style: none;
+  margin-block-start: 5em;
+  text-align: center;
+}
+
+.burgerBtn_links ul li {
+  margin: 20px 0;
+}
+
+.burgerBtn_links ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.5s linear;
+}
+
+.burgerBtn_links ul li a:hover {
+  color: #155d89;
+  -webkit-text-decoration: underline #155d89;
+          text-decoration: underline #155d89;
+}
+
+.burgerBtn_close {
+  height: 10px;
+  color: #ffffff;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  cursor: pointer;
+}
+
+.spinner {
+  position: relative;
+  width: 28.8px;
+  height: 28.8px;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  animation: spinner-b4c8mmlg 0.5s backwards, spinner-49opz7lg 1.25s 0.5s infinite ease;
+  border: 7.2px solid #e70c0c;
+  border-radius: 50%;
+  box-shadow: 0 -43.2px 0 -7.2px #e70c0c;
+  position: absolute;
+  top: 25em;
+  left: 60em;
+}
+
+.spinner::after {
+  animation-delay: 0s, 1.25s;
+}
+
+@keyframes spinner-b4c8mmlg {
+  from {
+    box-shadow: 0 0 0 -7.2px #e70c0c;
+  }
+}
+@keyframes spinner-49opz7lg {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*layout*/
+.footer {
+  background-color: #110c5f;
+  color: #ffffff;
+  text-align: center;
+}
+
+.footer_liens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  padding-block-start: 1em;
+}
+
+.footer_lien {
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.footer_icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.footer_icon:hover {
+  color: #155d89;
+}
+
+.footer_lien:hover {
+  color: #155d89;
+  -webkit-text-decoration: underline #155d89;
+          text-decoration: underline #155d89;
+}
+
+.navbar {
+  inline-size: 100%;
+  block-size: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #110c5f;
+  color: #ffffff;
+}
+
+.navbar_logo {
+  block-size: 100%;
+  inline-size: 15vh;
+}
+
+.navbar_liens {
+  list-style-type: none;
+  display: none;
+}
+
+.navbar_lien {
+  color: #000000;
+  text-decoration: none;
+}
+
+.navbar_title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.main {
+  background-color: #dcf2fa;
+}
+
+/*pages*/
+.contact_title {
+  text-align: center;
+  margin-block: 1em;
+}
+
+.contact_form {
+  display: flex;
+  flex-flow: column nowrap;
+  inline-size: 90%;
+  margin-inline: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2em;
+}
+
+.contact_form_input {
+  padding-inline-start: 0.5em;
+  border-radius: 6px;
+}
+
+.contact_form_input:focus {
+  outline-color: #000000;
+}
+
+.contact_form_block {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-block: 0.3em;
+}
+
+.contact_form_text {
+  height: 5em;
+  margin-block-end: 1em;
+  padding-inline-start: 0.5em;
+}
+
+.contact_form_text:focus {
+  outline-color: #000000;
+}
+
+.contact_form_btn {
+  border-radius: 5px;
+  padding-block: 0.4em;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.contact_form_btn:hover {
+  background-color: #110c5f;
+  color: #ffffff;
+}
+
+.errorPage_section {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.errorPage_titre {
+  text-align: center;
+  font-size: 3em;
+}
+
+.errorPage_btn {
+  display: block;
+  margin-inline: auto;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.errorPage_img {
+  block-size: 91vh;
+  inline-size: 90vw;
+  margin-inline: auto;
+}
+
+.home_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home_text {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.4;
+  margin-top: 1em;
+  padding-inline: 2em;
+  margin-block-end: 0.6em;
+}
+
+.magnetisme_title {
+  font-size: 1.6em;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  margin-block: 2em 1em;
+  text-decoration: underline;
+}
+
+.magnetisme_title2 {
+  text-align: center;
+  margin-block: 1em;
+}
+
+.magnetisme_text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4;
+  text-align: center;
+  margin-inline: 1.5em;
+  margin-block-end: 2em;
+}
+
+.magnetisme_text2 {
+  font-size: 0.9em;
+  text-align: center;
+  padding-inline: 1em;
+  margin-block-end: 1em;
+}
+
+.seanceADistance_container {
+  position: relative;
+  overflow: hidden;
+}
+
+.seanceADistance_video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.seanceADistance_titre,
+.seanceADistance_text,
+.seanceADistance_contact {
+  position: relative;
+  z-index: 1;
+}
+
+.seanceADistance_titre {
+  font-family: "Oswald", sans-serif;
+  padding-block: 1em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.seanceADistance_text {
+  text-align: center;
+  padding-inline: 1em;
+  font-family: "Montserrat", sans-serif;
+  margin-block-end: 3em;
+  color: #ffffff;
+}
+
+.seanceADistance_contact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 1em;
+}
+
+.seanceADistance_img {
+  inline-size: 65%;
+}
+
+.seanceADistance_liens {
+  margin-block-end: 0.6em;
+  text-align: center;
+}
+
+.seanceADistance_text2 {
+  font-family: "Montserrat", sans-serif;
+  padding-block-start: 1em;
+  color: #ffffff;
+  font-size: 0.9em;
+}
+
+.seanceADistance_span {
+  text-decoration: underline;
+}
+
+.seanceADistance_icon {
+  color: #110c5f;
+  margin-block-start: 1em;
+  font-size: 2rem;
+}
+
+.seanceADistance_icon:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.tarifs_title {
+  text-align: center;
+  margin-block: 1em;
+  text-decoration: underline;
+}
+
+.tarifs_article {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  inline-size: 20em;
+  margin-inline: auto;
+  margin-block-end: 1em;
+}
+
+.tarifs_icon {
+  font-size: 3em;
+  margin-block: 0.4em;
+}
+
+.tarifs_articleTitle {
+  text-align: center;
+  padding-block-end: 0.5em;
+}
+
+.tarifs_articleText {
+  padding-block-end: 0.6em;
+}
+
+/*themes*/
+/*vendors*//*# sourceMappingURL=main.css.map */

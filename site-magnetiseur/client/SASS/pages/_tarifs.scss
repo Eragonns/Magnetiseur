@@ -1,0 +1,28 @@
+.tarifs_title {
+  text-align: center;
+  margin-block: 1em;
+  text-decoration: underline;
+}
+
+.tarifs_article {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 1px solid $black;
+  border-radius: 8px;
+  inline-size: 20em;
+  margin-inline: auto;
+  margin-block-end: 1em;
+}
+
+.tarifs_icon {
+  font-size: 3em;
+  margin-block: 0.4em;
+}
+.tarifs_articleTitle {
+  text-align: center;
+  padding-block-end: 0.5em;
+}
+.tarifs_articleText {
+  padding-block-end: 0.6em;
+}

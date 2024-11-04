@@ -1,0 +1,27 @@
+.navbar {
+  inline-size: 100%;
+  block-size: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $darkBlue;
+  color: $white;
+}
+.navbar_logo {
+  block-size: 100%;
+  inline-size: 15vh;
+}
+.navbar_liens {
+  list-style-type: none;
+  display: none;
+}
+.navbar_lien {
+  color: $black;
+  text-decoration: none;
+}
+
+.navbar_title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}

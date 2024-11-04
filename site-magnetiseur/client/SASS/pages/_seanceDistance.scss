@@ -1,0 +1,69 @@
+.seanceADistance_container {
+  position: relative;
+  overflow: hidden;
+}
+.seanceADistance_video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.seanceADistance_titre,
+.seanceADistance_text,
+.seanceADistance_contact {
+  position: relative;
+  z-index: 1;
+}
+.seanceADistance_titre {
+  font-family: $font-title;
+  padding-block: 1em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.seanceADistance_text {
+  text-align: center;
+  padding-inline: 1em;
+  font-family: $font-primary;
+  margin-block-end: 3em;
+  color: $white;
+}
+
+.seanceADistance_contact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 1em;
+}
+.seanceADistance_img {
+  inline-size: 65%;
+}
+
+.seanceADistance_liens {
+  margin-block-end: 0.6em;
+  text-align: center;
+}
+
+.seanceADistance_text2 {
+  font-family: $font-primary;
+  padding-block-start: 1em;
+  color: $white;
+  font-size: 0.9em;
+}
+.seanceADistance_span {
+  text-decoration: underline;
+}
+.seanceADistance_icon {
+  color: $darkBlue;
+  margin-block-start: 1em;
+  font-size: 2rem;
+}
+.seanceADistance_icon:hover {
+  color: blue;
+  cursor: pointer;
+}
