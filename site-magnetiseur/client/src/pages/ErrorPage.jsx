@@ -12,7 +12,7 @@ function ErrorPage() {
           <button className="errorPage_btn">Retour à l&apos;accueil</button>
         </NavLink>
         <img
-          src="/Error-404.jfif"
+          src="/erreur404.svg"
           alt="Page d'erreur 404"
           className="errorPage_img"
         />
