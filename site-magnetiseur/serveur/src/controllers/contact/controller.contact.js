@@ -1,44 +1,59 @@
 import { StatusCodes } from "http-status-codes";
-import { resend } from "../../config/resend.config.js";
-import * as contactService from "../../services/service.contact.js";
-import validatePhoneNumber from "../../utils/util.phoneNumber.js";
+import nodemailer from "nodemailer";
 
-const sendEmail = async (req, res, next) => {
-  const { firstName, name, email, number, message } = req.body;
+import { createContact } from "../../services/contact.service.js";
 
-  const isPhoneNumberValid = validatePhoneNumber(number, "FR");
-  if (!isPhoneNumberValid) {
-    return res.status(400).send("Numéro de téléphone invalide.");
-  }
-
-  const contactData = { firstName, name, email, number, message };
+const submitContactForm = async (req, res, next) => {
+  const { firstName, lastName, email, number, message } = req.body;
 
   try {
-    const newContact = await contactService.create(contactData);
-
-    if (!newContact) {
-      throw new Error("Impossible de créer le contact.");
-    }
-
-    // Envoi de l'email via Resend
-    const { data, error } = await resend.emails.send({
-      from: "no-reply@domain.com", // Remplacez par une adresse email spécifique
-      to: ["proprietaire@domain.com"], // Email du propriétaire
-      subject: "Nouveau message de contact",
-      text: `Prénom: ${firstName}\nNom: ${name}\nEmail: ${email}\nTéléphone: ${number}\nMessage: ${message}`
+    const newContact = await createContact({
+      firstName,
+      lastName,
+      email,
+      number,
+      message
+    });
+    const transporter = nodemailer.createTransport({
+      host: "in-v3.mailjet.com",
+      port: 587,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
     });
 
-    if (error) {
-      return res.status(400).json({ error });
-    }
+    const mailText = `
+         Prénom: ${firstName}
+         Nom: ${lastName}
+         Email: ${email}
+         ${number ? `Téléphone: ${number}` : ""}
 
-    res
-      .status(StatusCodes.OK)
-      .json({ message: "Email envoyé avec succès.", data });
+         Message: ${message}
+       `;
+
+    const mailOptions = {
+      from: "lecomtefranck18@gmail.com",
+      to: email,
+      replyTo: "lecomtefranck18@gmail.com",
+      subject: `Nouveau message de ${firstName} ${lastName}`,
+      text: mailText.trim(),
+      html: `
+       <p><strong>Prénom:</strong> ${firstName}</p>
+       <p><strong>Nom:</strong> ${lastName}</p>
+       <p><strong>Email:</strong> ${email}</p>
+       ${number ? `<p><strong>Téléphone:</strong> ${number}</p>` : ""}
+       <p><strong>Message:</strong> ${message}</p>
+     `
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(StatusCodes.CREATED).json({ contact: newContact });
   } catch (error) {
-    console.error("Erreur lors de la soumission du formulaire :", error);
+    console.error("Erreur lors de l'envoie du mail :", error);
     next(error);
   }
 };
 
-export { sendEmail };
+export { submitContactForm };

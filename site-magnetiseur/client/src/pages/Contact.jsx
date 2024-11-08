@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axiosInstance from "../utils/axiosInstance";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
@@ -7,24 +8,51 @@ const Contact = () => {
   const [telephone, setTelephone] = useState("");
   const [countryCode, setCountryCode] = useState("+33");
   const [message, setMessage] = useState("");
-  const phoneRegex =
-    /^(?:\+32\s?|0)[4-9]\d{1}(\s?\d{2}){4}$|^(?:\+33\s?|0)[67]\d{1}(\s?\d{2}){4}$/;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const handleCountryCodeChange = (e) => {
+    setCountryCode(e.target.value);
+  };
+
+  const handleTelephoneChange = (e) => {
+    setTelephone(e.target.value);
+  };
+  const validatePhoneNumber = (phone, countryCode) => {
+    const cleanedPhone = phone.replace(/\D/g, "");
+
+    if (countryCode === "+33") {
+      if (cleanedPhone.length !== 9) {
+        return false;
+      }
+    }
+
+    if (countryCode === "+32") {
+      if (cleanedPhone.length !== 9) {
+        return false;
+      }
+    }
+
+    return true;
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(telephone);
 
-    if (!firstName || !lastName || !email || !telephone || !message) {
+    if (!firstName || !lastName || !email || !message) {
       alert("Tous les champs doivent être remplis.");
       return;
     }
 
-    const fullPhoneNumber = `${countryCode} ${telephone}`;
-    if (!phoneRegex.test(fullPhoneNumber)) {
-      alert(
-        "Numéro de téléphone invalide. Format attendu : +32 478 12 34 56 (Belgique) ou +33 6 12 34 56 78 (France)"
-      );
+    const fullPhoneNumber = telephone
+      ? `${countryCode}${telephone.replace(/\s+/g, "")}`
+      : "";
+
+    console.log("Numéro complet avec code pays :", fullPhoneNumber);
+    if (telephone && !validatePhoneNumber(telephone, countryCode)) {
+      alert("Numéro de téléphone invalide. Vérifiez le format du numéro.");
       return;
     }
+    setIsSubmitting(true);
 
     const contactData = {
       firstName,
@@ -35,12 +63,30 @@ const Contact = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/v1/send-email", contactData);
+      const response = await axiosInstance.post("/send-email", contactData);
+      console.log("reponse de l'api:", response);
+
       alert("Votre message a été envoyé avec succès!");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setTelephone("");
+      setMessage("");
+      setIsSubmitting(false);
     } catch (error) {
       console.error("Erreur lors de l'envoi du message :", error);
       alert("Une erreur s'est produite. Veuillez réessayer.");
+      setIsSubmitting(false);
     }
+  };
+
+  const getPhonePlaceholder = () => {
+    if (countryCode === "+33") {
+      return "Ex: +33612345678";
+    } else if (countryCode === "+32") {
+      return "Ex: +32478123456";
+    }
+    return "Entrez votre numéro";
   };
 
   return (
@@ -97,12 +143,11 @@ const Contact = () => {
             <input
               type="text"
               id="telephone"
-              name="telephone"
+              name="number"
               className="contact_form_input"
               value={telephone}
               onChange={handleTelephoneChange}
-              placeholder="Entrez votre numéro"
-              required
+              placeholder={getPhonePlaceholder()}
             />
           </div>
         </div>
@@ -116,8 +161,12 @@ const Contact = () => {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
-        <button type="submit" className="contact_form_btn">
-          Envoyer
+        <button
+          type="submit"
+          className="contact_form_btn"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Envoi..." : "Envoyer"}
         </button>
       </form>
     </>

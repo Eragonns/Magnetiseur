@@ -27,6 +27,7 @@ app.use(
     legacyHeaders: false
   })
 );
+
 app.use(mongoSanitize());
 app.use(
   cors({
@@ -38,7 +39,6 @@ app.use(
 connectDB();
 
 app.use("/api/v1", contact);
-
 app.use(notFound);
 app.use(errorHandler);
 

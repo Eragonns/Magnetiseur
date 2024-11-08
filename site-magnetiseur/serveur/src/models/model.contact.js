@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import validatePhoneNumber from "../utils/util.phoneNumber.js";
+
 const ContactSchema = new Schema(
   {
     firstName: {
@@ -7,7 +7,7 @@ const ContactSchema = new Schema(
       required: true,
       maxlength: 20
     },
-    name: {
+    lastName: {
       type: String,
       required: true,
       maxlength: 20
@@ -16,7 +16,6 @@ const ContactSchema = new Schema(
     email: {
       type: String,
       required: [true, "Veuillez fournir un email"],
-
       match: [
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         "Veuillez fournir un email valide"
@@ -24,20 +23,14 @@ const ContactSchema = new Schema(
     },
     number: {
       type: String,
-      required: true,
-      validate: {
-        validator: function (v) {
-          return validatePhoneNumber(v);
-        },
-        message: (props) =>
-          `${props.value} n'est pas un numéro de téléphone valide.`
-      }
+      required: false
     },
     message: {
       type: String,
       required: true,
       trim: true
-    }
+    },
+    createdAt: { type: Date, default: Date.now }
   },
   { timestamps: true }
 );
