@@ -1,4 +1,36 @@
+import axiosInstance from "../utils/axiosInstance.js";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { useEffect, useState } from "react";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { useCarousel } from "../utils/carousel.util.js";
+
 const Home = () => {
+  const [temoignages, setTemoignages] = useState([]);
+
+  useEffect(() => {
+    const loadTemoignages = async () => {
+      try {
+        const response = await axiosInstance.get("/temoignages");
+
+        setTemoignages(response.data.temoignages);
+      } catch (error) {
+        console.error("Échec de la récupération des témoignages", error);
+      }
+    };
+    loadTemoignages();
+  }, []);
+
+  const {
+    messageRef,
+    scrollableMessages,
+    autoPlayEnabled,
+    showIcon,
+    toggleAutoPlay,
+    handlePlay,
+    handlePause
+  } = useCarousel(temoignages);
+
   return (
     <div className="home_container">
       <div>
@@ -15,6 +47,51 @@ const Home = () => {
         complémentaires aux traitements médicaux. C&apos;est donc naturellement
         que je me suis formé aux soins en magnétisme.
       </p>
+      <Carousel
+        key={temoignages.length}
+        showThumbs={false}
+        showStatus={false}
+        showIndicators={false}
+        showArrows={true}
+        infiniteLoop
+        autoPlay={autoPlayEnabled}
+        interval={10000}
+        transitionTime={600}
+        stopOnHover={false}
+        onClickItem={toggleAutoPlay}
+        className="home_carousel"
+      >
+        {temoignages.map((temoignage, index) => (
+          <div key={temoignage._id} className="home_carousel_container">
+            <h2>{temoignage.firstName},</h2>
+            <h3 className="home_carousel_city">{temoignage.city}</h3>
+            <p
+              ref={(message) => (messageRef.current[index] = message)}
+              className={`carousel_text ${
+                scrollableMessages[index] ? "scrollable" : ""
+              }`}
+            >
+              &quot;{temoignage.message}&quot;
+            </p>{" "}
+            <div
+              className={`home_carousel_icon ${
+                showIcon === "play" ? "show" : ""
+              }`}
+              onClick={handlePlay}
+            >
+              <FaPlay size={40} />
+            </div>
+            <div
+              className={`home_carousel_icon ${
+                showIcon === "pause" ? "show" : ""
+              }`}
+              onClick={handlePause}
+            >
+              <FaPause size={40} />
+            </div>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };

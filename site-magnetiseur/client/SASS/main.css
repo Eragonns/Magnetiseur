@@ -48,15 +48,16 @@ a {
 .burgerBtn_links {
   position: fixed;
   top: 0;
-  left: -400px;
-  width: 100%;
+  left: -100%;
+  width: 100vw;
+  max-width: 400px;
   height: 100vh;
   background-color: #110c5f;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: left 0.3s linear;
+  transition: left 0.3s ease-in-out;
   z-index: 999;
 }
 
@@ -94,6 +95,46 @@ a {
   top: 2em;
   right: 2em;
   cursor: pointer;
+}
+
+.home_carousel {
+  padding-block-start: 1em;
+  max-height: 200px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.home_carousel_container {
+  position: relative;
+  text-align: center;
+}
+
+.carousel_text {
+  margin-inline: auto;
+  inline-size: 20em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel_text.scrollable {
+  max-height: 130px;
+  overflow-y: auto;
+}
+
+.home_carousel_icon {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.home_carousel_icon.show {
+  opacity: 1;
 }
 
 .spinner {
@@ -136,6 +177,8 @@ a {
   background-color: #110c5f;
   color: #ffffff;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .footer_liens {
@@ -282,11 +325,12 @@ a {
 }
 
 .home_container {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   text-align: center;
+  padding-block-end: 3em;
 }
 
 .home_text {
@@ -402,6 +446,21 @@ a {
 .seanceADistance_icon:hover {
   color: blue;
   cursor: pointer;
+}
+
+.tarifs_container {
+  margin-block-end: 2em;
+}
+
+.tarifs_service_container {
+  inline-size: 20em;
+  margin-inline: auto;
+}
+
+.tarifs_service {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-block-start: 2em;
 }
 
 .tarifs_title {

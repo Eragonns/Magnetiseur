@@ -13,6 +13,7 @@ import notFound from "./middlewares/not-found.middleware.js";
 import connectDB from "./config/db.config.js";
 
 import contact from "./controllers/contact/route.contact.js";
+import temoignages from "./controllers/temoignages/route.temoignages.js";
 
 const app = express();
 app.use(express.json());
@@ -39,6 +40,8 @@ app.use(
 connectDB();
 
 app.use("/api/v1", contact);
+app.use("/api/v1", temoignages);
+
 app.use(notFound);
 app.use(errorHandler);
 

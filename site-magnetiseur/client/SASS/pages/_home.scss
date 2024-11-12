@@ -1,9 +1,10 @@
 .home_container {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   text-align: center;
+  padding-block-end: 3em;
 }
 
 .home_text {

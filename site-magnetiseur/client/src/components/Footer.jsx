@@ -11,31 +11,31 @@ const Footer = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/" className="footer_lien">
+          <NavLink to="/magnetisme" className="footer_lien">
             Magnétisme ?
           </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/" className="footer_lien">
+          <NavLink to="/seanceADistance" className="footer_lien">
             Séance à distance
           </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/" className="footer_lien">
+          <NavLink to="/temoignages" className="footer_lien">
             Témoignages
           </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/" className="footer_lien">
+          <NavLink to="/tarifs" className="footer_lien">
             Tarifs
           </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/" className="footer_lien">
+          <NavLink to="/contact" className="footer_lien">
             Contact
           </NavLink>
         </li>

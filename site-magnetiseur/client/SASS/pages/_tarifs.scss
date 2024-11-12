@@ -1,3 +1,17 @@
+.tarifs_container {
+  margin-block-end: 2em;
+}
+
+.tarifs_service_container {
+  inline-size: 20em;
+  margin-inline: auto;
+}
+.tarifs_service {
+  font-family: $font-primary;
+  text-align: center;
+  margin-block-start: 2em;
+}
+
 .tarifs_title {
   text-align: center;
   margin-block: 1em;

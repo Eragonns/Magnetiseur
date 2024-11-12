@@ -23,15 +23,16 @@
 .burgerBtn_links {
   position: fixed;
   top: 0;
-  left: -400px;
-  width: 100%;
+  left: -100%;
+  width: 100vw;
+  max-width: 400px;
   height: 100vh;
   background-color: $darkBlue;
   color: $white;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: left 0.3s linear;
+  transition: left 0.3s ease-in-out;
   z-index: 999;
 }
 

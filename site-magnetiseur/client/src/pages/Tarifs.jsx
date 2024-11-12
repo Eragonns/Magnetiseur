@@ -3,7 +3,13 @@ import { FaChildren } from "react-icons/fa6";
 import { GiPathDistance } from "react-icons/gi";
 const Tarifs = () => {
   return (
-    <section>
+    <section className="tarifs_container">
+      <div className="tarifs_service_container">
+        <p className="tarifs_service">
+          Pour toute intervention, je me déplace à domicile, ou séance à
+          distance.
+        </p>
+      </div>
       <h1 className="tarifs_title">Tarifs</h1>
       <article className="tarifs_article">
         <IoMan className="tarifs_icon" />
