@@ -1,4 +1,5 @@
-import axiosInstance from "../utils/axiosInstance.js";
+// import axiosInstance from "../utils/axiosInstance.js";
+import axiosRender from "../utils/axiosRender.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const loadTemoignages = async () => {
       try {
-        const response = await axiosInstance.get("/temoignages");
+        const response = await axiosRender.get("/temoignages");
 
         setTemoignages(response.data.temoignages);
       } catch (error) {
