@@ -3,6 +3,7 @@
   color: $white;
   text-align: center;
   position: relative;
+  padding: 1em 0;
   z-index: 1;
 }
 .footer_liens {
@@ -15,11 +16,13 @@
   text-decoration: none;
   color: $white;
   cursor: pointer;
+  transition: $transition;
 }
 .footer_icon {
   font-size: 1.5rem;
   cursor: pointer;
   color: $white;
+  transition: $transition;
 }
 
 .footer_icon:hover {
@@ -29,4 +32,13 @@
 .footer_lien:hover {
   color: $mediumBlue;
   text-decoration: underline $mediumBlue;
+}
+
+@media screen and (min-width: 1024px) {
+  .footer_liens {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    padding-block: 0 1em;
+  }
 }

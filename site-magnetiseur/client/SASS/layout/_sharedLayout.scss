@@ -1,3 +1,11 @@
+.page_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main {
+  padding-top: 7vh;
   background-color: $lightBlue;
+  flex: 1;
 }

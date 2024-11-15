@@ -1,5 +1,6 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import { Navbar, Footer } from "../components";
+import ScrollToTop from "../utils/scrollToTop.js";
 
 function SharedLayout() {
   const navigation = useNavigation();
@@ -12,11 +13,14 @@ function SharedLayout() {
     );
   }
   return (
-    <main className="main">
+    <div className="page_container">
+      <ScrollToTop />
       <Navbar />
-      <Outlet />
+      <main className="main">
+        <Outlet />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
 

@@ -1,19 +1,20 @@
-.home_carousel {
+.carousel {
   padding-block-start: 1em;
   max-height: 200px;
   overflow-y: auto;
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  margin-block-end: 1.8em;
 }
 
-.home_carousel_container {
+.carousel_container {
   position: relative;
   text-align: center;
 }
 
 .carousel_text {
-  margin-inline: auto;
-  inline-size: 20em;
+  font-family: $font-primary;
+  padding-inline: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -23,7 +24,7 @@
   overflow-y: auto;
 }
 
-.home_carousel_icon {
+.carousel_icon {
   color: $white;
   position: absolute;
   top: 50%;
@@ -34,6 +35,6 @@
   cursor: pointer;
 }
 
-.home_carousel_icon.show {
+.carousel_icon.show {
   opacity: 1;
 }

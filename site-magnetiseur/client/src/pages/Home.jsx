@@ -59,32 +59,28 @@ const Home = () => {
         transitionTime={600}
         stopOnHover={false}
         onClickItem={toggleAutoPlay}
-        className="home_carousel"
+        className="carousel"
       >
         {temoignages.map((temoignage, index) => (
-          <div key={temoignage._id} className="home_carousel_container">
+          <div key={temoignage._id} className="carousel_container">
             <h2>{temoignage.firstName},</h2>
-            <h3 className="home_carousel_city">{temoignage.city}</h3>
+            <h3 translate="no">{temoignage.city}</h3>
             <p
               ref={(message) => (messageRef.current[index] = message)}
-              className={`carousel_text ${
+              className={`carousel_text carousel_text ${
                 scrollableMessages[index] ? "scrollable" : ""
               }`}
             >
               &quot;{temoignage.message}&quot;
             </p>{" "}
             <div
-              className={`home_carousel_icon ${
-                showIcon === "play" ? "show" : ""
-              }`}
+              className={`carousel_icon ${showIcon === "play" ? "show" : ""}`}
               onClick={handlePlay}
             >
               <FaPlay size={40} />
             </div>
             <div
-              className={`home_carousel_icon ${
-                showIcon === "pause" ? "show" : ""
-              }`}
+              className={`carousel_icon ${showIcon === "pause" ? "show" : ""}`}
               onClick={handlePause}
             >
               <FaPause size={40} />

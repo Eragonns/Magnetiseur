@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axiosInstance from "../utils/axiosInstance";
+import { BsTelephoneFill, BsFillHandThumbsUpFill } from "react-icons/bs";
+import { IoIosMail } from "react-icons/io";
+import { FaFacebook } from "react-icons/fa";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
@@ -36,7 +39,6 @@ const Contact = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(telephone);
 
     if (!firstName || !lastName || !email || !message) {
       alert("Tous les champs doivent être remplis.");
@@ -47,7 +49,6 @@ const Contact = () => {
       ? `${countryCode}${telephone.replace(/\s+/g, "")}`
       : "";
 
-    console.log("Numéro complet avec code pays :", fullPhoneNumber);
     if (telephone && !validatePhoneNumber(telephone, countryCode)) {
       alert("Numéro de téléphone invalide. Vérifiez le format du numéro.");
       return;
@@ -82,19 +83,19 @@ const Contact = () => {
 
   const getPhonePlaceholder = () => {
     if (countryCode === "+33") {
-      return "Ex: +33612345678";
+      return "Ex:+33612345678";
     } else if (countryCode === "+32") {
-      return "Ex: +32478123456";
+      return "Ex:+32478123456";
     }
     return "Entrez votre numéro";
   };
 
   return (
-    <>
+    <section className="contact_container">
       <h1 className="contact_title">Formulaire de Contact</h1>
       <form className="contact_form" onSubmit={handleSubmit}>
         <div className="contact_form_block">
-          <label htmlFor="firstName">Prénom</label>
+          <label htmlFor="firstName">Prénom:</label>
           <input
             type="text"
             id="firstName"
@@ -106,7 +107,7 @@ const Contact = () => {
           />
         </div>
         <div className="contact_form_block">
-          <label htmlFor="lastName">Nom</label>
+          <label htmlFor="lastName">Nom:</label>
           <input
             type="text"
             id="lastName"
@@ -118,7 +119,7 @@ const Contact = () => {
           />
         </div>
         <div className="contact_form_block">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -130,8 +131,8 @@ const Contact = () => {
           />
         </div>
         <div className="contact_form_block">
-          <label htmlFor="telephone">Numero de téléphone</label>
-          <div className="telephone_input_container">
+          <label htmlFor="telephone">Numero de téléphone:</label>
+          <div className="contact_telephone_input">
             <select
               value={countryCode}
               onChange={handleCountryCodeChange}
@@ -152,7 +153,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="contact_form_block">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Message:</label>
           <textarea
             name="message"
             id="message"
@@ -169,7 +170,41 @@ const Contact = () => {
           {isSubmitting ? "Envoi..." : "Envoyer"}
         </button>
       </form>
-    </>
+
+      <section className="contact_sections">
+        <div className="contact_section">
+          <BsTelephoneFill size={30} />
+          <a href="tel:0675150088" className="contact_section_link">
+            <strong>06 75 15 00 88</strong>
+          </a>
+        </div>
+        <div className="contact_section">
+          {" "}
+          <IoIosMail size={30} />
+          <a
+            href="mailto:didieralternativemagnetisme@gmail.com"
+            className="contact_section_link"
+          >
+            <strong>
+              didieralternativemagnetisme
+              <span className="contact_email_domain">@gmail.com</span>
+            </strong>
+          </a>
+        </div>
+
+        <div className="contact_section">
+          <BsFillHandThumbsUpFill size={30} />
+          <a
+            href="https://www.facebook.com/p/didier-alternative-magn%C3%A9tisme-100090829697007/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact_section_link"
+          >
+            <FaFacebook size={25} />
+          </a>
+        </div>
+      </section>
+    </section>
   );
 };
 export default Contact;

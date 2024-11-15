@@ -9,6 +9,7 @@
 .magnetisme_title2 {
   text-align: center;
   margin-block: 1em;
+  font-family: $font-title;
 }
 
 .magnetisme_text {
@@ -20,9 +21,61 @@
   margin-block-end: 2em;
 }
 
+.magnetisme_lists {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-block-end: 1em;
+}
+
+.magnetisme_lists_title {
+  padding-block-end: 1em;
+  font-family: $font-title;
+  text-align: center;
+}
+
+.magnetisme_lists_stitle {
+  text-align: center;
+}
+
+.magnetisme_lists_text {
+  font-family: $font-primary;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .magnetisme_text2 {
   font-size: 0.9em;
   text-align: center;
   padding-inline: 1em;
   margin-block-end: 1em;
+}
+
+@media screen and (max-width: 900px) {
+  .magnetisme_title {
+    font-size: 1.3em;
+  }
+  .magnetisme_lists {
+    padding-inline: 1em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .magnetisme_img {
+    block-size: 20em;
+    object-fit: contain;
+  }
+  .magnetisme_text {
+    max-block-size: 10em;
+  }
+  .magnetisme_flex {
+    display: flex;
+    margin-inline: 2em;
+    padding-block-end: 1em;
+  }
+
+  .magnetisme_article {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 }

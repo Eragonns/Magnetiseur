@@ -59,7 +59,7 @@ const Temoignages = () => {
   } = useCarousel(temoignages);
 
   return (
-    <>
+    <section className="temoignages_container">
       <h1 className="temoignages_title">Partagez votre expérience</h1>
       <form className="temoignages_form" onSubmit={handleSubmit}>
         <div className="temoignages_form_block">
@@ -118,32 +118,28 @@ const Temoignages = () => {
         transitionTime={600}
         stopOnHover={false}
         onClickItem={toggleAutoPlay}
-        className="temoignages_carousel"
+        className="carousel"
       >
         {temoignages.map((temoignage, index) => (
           <div key={temoignage._id}>
             <h2>{temoignage.firstName},</h2>
-            <h3>{temoignage.city}</h3>
+            <h3 translate="no">{temoignage.city}</h3>
             <p
               ref={(message) => (messageRef.current[index] = message)}
-              className={`carousel_text ${
+              className={`carousel_text carousel_text ${
                 scrollableMessages[index] ? "scrollable" : ""
               }`}
             >
               &quot;{temoignage.message}&quot;
             </p>
             <div
-              className={`home_carousel_icon ${
-                showIcon === "play" ? "show" : ""
-              }`}
+              className={`carousel_icon ${showIcon === "play" ? "show" : ""}`}
               onClick={handlePlay}
             >
               <FaPlay size={40} />
             </div>
             <div
-              className={`home_carousel_icon ${
-                showIcon === "pause" ? "show" : ""
-              }`}
+              className={`carousel_icon ${showIcon === "pause" ? "show" : ""}`}
               onClick={handlePause}
             >
               <FaPause size={40} />
@@ -151,7 +147,7 @@ const Temoignages = () => {
           </div>
         ))}
       </Carousel>
-    </>
+    </section>
   );
 };
 export default Temoignages;

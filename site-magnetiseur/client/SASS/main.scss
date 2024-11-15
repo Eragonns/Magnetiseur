@@ -4,7 +4,6 @@
 
 /*base*/
 @import "base/reset";
-@import "base/typography";
 
 /*conponements*/
 @import "components/button";
@@ -34,11 +33,14 @@
 @import "pages/modeemploi";
 @import "pages/seanceDistance";
 @import "pages/tarifs";
+@import "pages/temoignages";
 
 /*themes*/
 @import "themes/admin";
 @import "themes/theme";
+@import "themes/typography";
 
 /*vendors*/
 @import "vendors/bootstrap";
 @import "vendors/fonts";
+@import "vendors/normalize";

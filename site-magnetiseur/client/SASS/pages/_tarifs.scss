@@ -1,14 +1,18 @@
 .tarifs_container {
   margin-block-end: 2em;
+  min-height: calc(100vh - 19vh);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .tarifs_service_container {
-  inline-size: 20em;
-  margin-inline: auto;
+  display: flex;
+  justify-content: center;
 }
 .tarifs_service {
   font-family: $font-primary;
-  text-align: center;
+
   margin-block-start: 2em;
 }
 
@@ -39,4 +43,15 @@
 }
 .tarifs_articleText {
   padding-block-end: 0.6em;
+}
+
+@media screen and (max-width: 900px) {
+  .tarifs_service {
+    padding-block-start: 0.5em;
+    text-align: center;
+    max-width: 95%;
+  }
+  .tarifs_article {
+    max-width: 90%;
+  }
 }

@@ -14,28 +14,38 @@ function Navbar() {
       <ul className="navbar_liens">
         <li>
           {" "}
-          <NavLink to="/">
+          <NavLink to="/" className="navbar_lien">
             <FaHome />
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">Magnétisme ?</NavLink>
+          <NavLink to="/magnetisme" className="navbar_lien">
+            Magnétisme ?
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/">Séance à distance</NavLink>
+          <NavLink to="/seanceADistance" className="navbar_lien">
+            Séance à distance
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/">Témoignages</NavLink>
+          <NavLink to="/temoignages" className="navbar_lien">
+            Témoignages
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/">Tarifs</NavLink>
+          <NavLink to="/tarifs" className="navbar_lien">
+            Tarifs
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/">Contact</NavLink>
+          <NavLink to="/contact" className="navbar_lien">
+            Contact
+          </NavLink>
         </li>
       </ul>
       <BurgerBtn />

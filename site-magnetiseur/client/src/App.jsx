@@ -7,10 +7,10 @@ import {
   Home,
   SeanceADistance,
   Temoignages,
+  Magnetisme,
   Tarifs,
   Contact
 } from "./pages";
-import Magnetisme from "./pages/Magnetisme";
 
 const router = createBrowserRouter([
   {

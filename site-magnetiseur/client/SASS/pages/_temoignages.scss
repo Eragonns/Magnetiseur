@@ -1,0 +1,59 @@
+.temoignages_container {
+  min-height: calc(100vh - 19vh);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.temoignages_title {
+  text-align: center;
+  font-family: $font-title;
+  margin-block: 1em;
+  text-decoration: underline;
+}
+
+.temoignages_form {
+  display: flex;
+  flex-flow: column nowrap;
+  inline-size: 90%;
+  margin-inline: auto;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 2em;
+  margin-block-end: 2em;
+}
+
+.temoignages_form_input {
+  padding-inline-start: 0.5em;
+  border-radius: 6px;
+}
+
+.temoignages_form_input:focus {
+  outline-color: $black;
+}
+.temoignages_form_block {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-block: 0.3em;
+}
+.temoignages_form_text {
+  height: 5em;
+  margin-block-end: 1em;
+  padding-inline-start: 0.5em;
+}
+.temoignages_form_text:focus {
+  outline-color: $black;
+}
+
+.temoignages_form_btn {
+  border-radius: 5px;
+  padding-block: 0.4em;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.temoignages_form_btn:hover {
+  background-color: $darkBlue;
+  color: $white;
+}

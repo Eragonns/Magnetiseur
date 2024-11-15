@@ -3,7 +3,7 @@ import { FaFacebook } from "react-icons/fa";
 const SeanceADistance = () => {
   return (
     <section className="seanceADistance_container">
-      <video className="seanceADistance_video" autoPlay loop muted>
+      <video className="seanceADistance_video" autoPlay loop muted playsInline>
         <source src="/mer.mp4" type="video/mp4" />
       </video>
       <h1 className="seanceADistance_titre">Séance de magnétisme à distance</h1>
