@@ -6,6 +6,7 @@ import mongoSanitize from "express-mongo-sanitize";
 import cors from "cors";
 import "dotenv/config";
 import "express-async-errors";
+import { corsOptionsDelegate } from "./utils/cors.util.js";
 
 import errorHandler from "./middlewares/error-handler.middleware.js";
 import notFound from "./middlewares/not-found.middleware.js";
@@ -32,7 +33,7 @@ app.use(
 app.use(mongoSanitize());
 app.use(
   cors({
-    origin: "https://magnetiseur-hc8wjd6yx-lecomtes-projects.vercel.app",
+    origin: corsOptionsDelegate,
     credentials: true
   })
 );
