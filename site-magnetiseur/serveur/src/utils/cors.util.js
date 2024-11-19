@@ -1,5 +1,5 @@
 const allowedOrigins = [
-  "https://magnetiseur-9h887359n-lecomtes-projects.vercel.app",
+  "https://magnetiseur-pniipx0mk-lecomtes-projects.vercel.app",
   "http://localhost:5173"
 ];
 
