@@ -10,6 +10,7 @@ import { corsOptionsDelegate } from "./utils/cors.util.js";
 
 import errorHandler from "./middlewares/error-handler.middleware.js";
 import notFound from "./middlewares/not-found.middleware.js";
+import blockRoutes from "./middlewares/blockRoutes.middleware.js";
 
 import connectDB from "./config/db.config.js";
 
@@ -18,6 +19,8 @@ import temoignages from "./controllers/temoignages/route.temoignages.js";
 
 const app = express();
 app.use(express.json());
+
+app.use(blockRoutes);
 
 app.use(helmet());
 app.set("trust proxy", 1);
