@@ -31,7 +31,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   overflow-y: auto;
   transition: $transitionBtn;
   z-index: 999;
@@ -66,6 +66,11 @@
   text-decoration: underline $mediumBlue;
 }
 
+.burgerBtn_liens {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .burgerBtn_close {
   height: 10px;
   color: $white;
@@ -78,5 +83,10 @@
 @media screen and (min-width: 1024px) {
   .burgerBtn_menu {
     display: none;
+  }
+}
+@media screen and (min-width: 800px) {
+  .burgerBtn_links {
+    left: -110%;
   }
 }

@@ -33,10 +33,11 @@
 
 .seanceADistance_text {
   font-family: $font-primary;
+  inline-size: 80%;
   font-size: 1.1em;
   line-height: 1.4;
   text-align: center;
-  margin-inline: 1.5em;
+  margin-inline: auto;
   margin-block-end: 2em;
   background: linear-gradient(to right, $black, rgba(122, 122, 122, 0.568));
   -webkit-background-clip: text;
@@ -76,4 +77,10 @@
 .seanceADistance_icon:hover {
   color: blue;
   cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .seanceADistance_img {
+    inline-size: 30%;
+  }
 }

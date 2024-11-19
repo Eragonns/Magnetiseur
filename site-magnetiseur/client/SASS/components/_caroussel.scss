@@ -1,12 +1,16 @@
 .carousel {
   padding-block-start: 1em;
-  max-height: 200px;
+  max-height: 210px;
   overflow-y: auto;
   position: relative;
   z-index: 1;
   margin-block-end: 1.8em;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
+.carousel::-webkit-scrollbar {
+  display: none;
+}
 .carousel_container {
   position: relative;
   text-align: center;
@@ -24,6 +28,19 @@
   overflow-y: auto;
 }
 
+/* Masquer la barre de défilement sur les navigateurs Webkit (Chrome, Safari, Edge) */
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+/* Masquer la barre de défilement sur Firefox */
+.scrollable {
+  scrollbar-width: none; /* Supprime la scrollbar */
+  /* Optionnel : Pour IE10+ */
+
+  -ms-overflow-style: none; /* Supprime la scrollbar sur Internet Explorer */
+}
+
 .carousel_icon {
   color: $white;
   position: absolute;
@@ -37,4 +54,11 @@
 
 .carousel_icon.show {
   opacity: 1;
+}
+
+@media screen and (min-width: 900px) {
+  .carousel {
+    inline-size: 25em;
+    margin-inline: auto;
+  }
 }

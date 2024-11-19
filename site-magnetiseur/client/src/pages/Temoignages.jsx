@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useCarousel } from "../utils/carousel.util.js";
+import Swal from "sweetalert2";
 
 const Temoignages = () => {
   const [firstName, setFirstName] = useState("");
@@ -24,14 +25,23 @@ const Temoignages = () => {
 
     try {
       await axiosInstance.post("/temoignages", temoignagesData);
-      alert("Votre temoignage a été envoyé avec succès!");
+      await Swal.fire({
+        icon: "success",
+        title: "Témoignage ajouté avec succès !",
+        confirmButtonText: "OK"
+      });
       setFirstName("");
       setCity("");
       setMessage("");
       setIsSubmitting(false);
     } catch (error) {
       console.error("Erreur lors de l'envoie du temoignages :", error);
-      alert("Une erreur s'est produite. Veuillez réessayer. ");
+      await Swal.fire({
+        icon: "error",
+        title: "Échec de l'ajout du témoignage.",
+        text: "Une erreur s'est produite, veuillez réessayer.",
+        confirmButtonText: "OK"
+      });
       setIsSubmitting(false);
     }
   };
@@ -61,51 +71,60 @@ const Temoignages = () => {
   return (
     <section className="temoignages_container">
       <h1 className="temoignages_title">Partagez votre expérience</h1>
-      <form className="temoignages_form" onSubmit={handleSubmit}>
-        <div className="temoignages_form_block">
-          <label htmlFor="firstName">Votre Prénom:</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            className="temoignages_form_input"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="temoignages_form_block">
-          <label htmlFor="city">Votre Ville:</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            autoCorrect="off"
-            className="temoignages_form_input"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-          />
-        </div>
-        <div className="temoignages_form_block">
-          <label htmlFor="message">Votre Témoignages:</label>
-          <textarea
-            id="message"
-            name="message"
-            className="temoignages_form_text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="temoignages_form_btn"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Envoi..." : "Envoyer"}
-        </button>
-      </form>
+      <div className="temoignages_bloc">
+        <img
+          src="/temoignages.jfif"
+          alt="image d'une femme méditant dans une forêt "
+          className="temoignages_img"
+        />
+
+        <form className="temoignages_form" onSubmit={handleSubmit}>
+          <h2 className="temoignages_form_title">Laissez votre Témoignage</h2>
+          <div className="temoignages_form_block">
+            <label htmlFor="firstName">Votre Prénom:</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              className="temoignages_form_input"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="temoignages_form_block">
+            <label htmlFor="city">Votre Ville:</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              autoCorrect="off"
+              className="temoignages_form_input"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+          </div>
+          <div className="temoignages_form_block">
+            <label htmlFor="message">Votre Témoignages:</label>
+            <textarea
+              id="message"
+              name="message"
+              className="temoignages_form_text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="temoignages_form_btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Envoi..." : "Envoyer"}
+          </button>
+        </form>
+      </div>
       <Carousel
         key={temoignages.length}
         showThumbs={false}

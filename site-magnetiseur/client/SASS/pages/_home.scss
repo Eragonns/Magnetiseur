@@ -17,3 +17,18 @@
   padding-inline: 2em;
   margin-block-end: 0.6em;
 }
+
+@media screen and (min-width: 750px) {
+  .home_img {
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    object-position: bottom;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .home_img {
+    height: 85vh;
+  }
+}

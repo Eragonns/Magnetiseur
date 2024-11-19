@@ -35,7 +35,14 @@ const Home = () => {
   return (
     <div className="home_container">
       <div>
-        <img src="/photo.webp" alt="photo de Didier Lefebvre" />
+        <picture>
+          <source srcSet="/photo.jpg" media="(min-width: 900px)" />{" "}
+          <img
+            src="/photo.webp"
+            alt="photo de Didier Lefebvre"
+            className="home_img"
+          />
+        </picture>
       </div>
       <p className="home_text">
         Je vous accompagne afin de retrouver un équilibre du corps et de

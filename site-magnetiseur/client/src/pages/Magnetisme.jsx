@@ -21,34 +21,36 @@ const Magnetisme = () => {
           </p>
         </article>
       </div>
-      <ul className="magnetisme_lists">
-        {" "}
-        <h2 className="magnetisme_lists_title">
-          Déroulement d&apos;une séance.
-        </h2>
-        <h3 className="magnetisme_lists_stitle">
-          La durée d&apos;une séance est d&apos;environ 1 heure.
-        </h3>
-        <li className="magnetisme_lists_text">
-          - On commence par un entretien afin de cibler la problématique
-        </li>
-        <li className="magnetisme_lists_text">
-          - La détection de polarité du sujet.
-        </li>
-        <li className="magnetisme_lists_text">
-          - Une prise de contact pour équilibrer le magnétisme du sujet et celui
-          du magnétiseur.
-        </li>
-        <li className="magnetisme_lists_text">- Les passes de saturation</li>
-        <li className="magnetisme_lists_text">- Les passes de traitement.</li>
-        <li className="magnetisme_lists_text">- Les passes de dégagement.</li>
-      </ul>
+      <article className="magnetisme_article2">
+        <ul className="magnetisme_lists">
+          {" "}
+          <h2 className="magnetisme_lists_title">
+            Déroulement d&apos;une séance.
+          </h2>
+          <h3 className="magnetisme_lists_title">
+            La durée d&apos;une séance est d&apos;environ 1 heure.
+          </h3>
+          <li className="magnetisme_lists_text">
+            - On commence par un entretien afin de cibler la problématique
+          </li>
+          <li className="magnetisme_lists_text">
+            - La détection de polarité du sujet.
+          </li>
+          <li className="magnetisme_lists_text">
+            - Une prise de contact pour équilibrer le magnétisme du sujet et
+            celui du magnétiseur.
+          </li>
+          <li className="magnetisme_lists_text">- Les passes de saturation</li>
+          <li className="magnetisme_lists_text">- Les passes de traitement.</li>
+          <li className="magnetisme_lists_text">- Les passes de dégagement.</li>
+        </ul>
 
-      <p className="magnetisme_text2">
-        Mes soins ne se substituent pas à un avis médical. Je ne fais aucun
-        diagnostic, et ne demande en aucun cas l&apos;arret d&apos;un
-        traitement.
-      </p>
+        <p className="magnetisme_text2">
+          Mes soins ne se substituent pas à un avis médical. Je ne fais aucun
+          diagnostic, et ne demande en aucun cas l&apos;arret d&apos;un
+          traitement.
+        </p>
+      </article>
     </section>
   );
 };

@@ -32,7 +32,7 @@ app.use(
 app.use(mongoSanitize());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "magnétiseur-cemk3y5mb-lecomtes-projects.vercel.app",
     credentials: true
   })
 );

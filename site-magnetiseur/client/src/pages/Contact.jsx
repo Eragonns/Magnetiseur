@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 import axiosInstance from "../utils/axiosInstance";
 import { BsTelephoneFill, BsFillHandThumbsUpFill } from "react-icons/bs";
 import { IoIosMail } from "react-icons/io";
@@ -67,7 +68,11 @@ const Contact = () => {
       const response = await axiosInstance.post("/send-email", contactData);
       console.log("reponse de l'api:", response);
 
-      alert("Votre message a été envoyé avec succès!");
+      await Swal.fire({
+        icon: "success",
+        title: "Message envoyé avec succès !",
+        confirmButtonText: "OK"
+      });
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -76,7 +81,12 @@ const Contact = () => {
       setIsSubmitting(false);
     } catch (error) {
       console.error("Erreur lors de l'envoi du message :", error);
-      alert("Une erreur s'est produite. Veuillez réessayer.");
+      await Swal.fire({
+        icon: "error",
+        title: "Échec de l'envoie du message.",
+        text: "Une erreur s'est produite, veuillez réessayer.",
+        confirmButtonText: "OK"
+      });
       setIsSubmitting(false);
     }
   };
@@ -93,83 +103,91 @@ const Contact = () => {
   return (
     <section className="contact_container">
       <h1 className="contact_title">Formulaire de Contact</h1>
-      <form className="contact_form" onSubmit={handleSubmit}>
-        <div className="contact_form_block">
-          <label htmlFor="firstName">Prénom:</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            className="contact_form_input"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="contact_form_block">
-          <label htmlFor="lastName">Nom:</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            className="contact_form_input"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="contact_form_block">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="contact_form_input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="contact_form_block">
-          <label htmlFor="telephone">Numero de téléphone:</label>
-          <div className="contact_telephone_input">
-            <select
-              value={countryCode}
-              onChange={handleCountryCodeChange}
-              className="country_code_select"
-            >
-              <option value="+33">+33 (France)</option>
-              <option value="+32">+32 (Belgique)</option>
-            </select>
+      <div className="contact_bloc">
+        <img
+          src="/contact.jfif"
+          alt="image de la page de contact"
+          className="contact_img"
+        />
+        <form className="contact_form" onSubmit={handleSubmit}>
+          <h2 className="contact_form_title">Laissez moi votre message</h2>
+          <div className="contact_form_block">
+            <label htmlFor="firstName">Prénom:</label>
             <input
               type="text"
-              id="telephone"
-              name="number"
+              id="firstName"
+              name="firstName"
               className="contact_form_input"
-              value={telephone}
-              onChange={handleTelephoneChange}
-              placeholder={getPhonePlaceholder()}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
             />
           </div>
-        </div>
-        <div className="contact_form_block">
-          <label htmlFor="message">Message:</label>
-          <textarea
-            name="message"
-            id="message"
-            className="contact_form_text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="contact_form_btn"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Envoi..." : "Envoyer"}
-        </button>
-      </form>
+          <div className="contact_form_block">
+            <label htmlFor="lastName">Nom:</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              className="contact_form_input"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="contact_form_block">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="contact_form_input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="contact_form_block">
+            <label htmlFor="telephone">Numero de téléphone:</label>
+            <div className="contact_telephone_input">
+              <select
+                value={countryCode}
+                onChange={handleCountryCodeChange}
+                className="country_code_select"
+              >
+                <option value="+33">+33 (France)</option>
+                <option value="+32">+32 (Belgique)</option>
+              </select>
+              <input
+                type="text"
+                id="telephone"
+                name="number"
+                className="contact_form_input"
+                value={telephone}
+                onChange={handleTelephoneChange}
+                placeholder={getPhonePlaceholder()}
+              />
+            </div>
+          </div>
+          <div className="contact_form_block">
+            <label htmlFor="message">Message:</label>
+            <textarea
+              name="message"
+              id="message"
+              className="contact_form_text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="contact_form_btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Envoi..." : "Envoyer"}
+          </button>
+        </form>
+      </div>
 
       <section className="contact_sections">
         <div className="contact_section">

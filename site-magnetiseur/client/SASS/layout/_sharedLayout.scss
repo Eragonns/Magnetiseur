@@ -9,3 +9,20 @@
   background-color: $lightBlue;
   flex: 1;
 }
+
+@media screen and (min-width: 230px) {
+  .main {
+    padding-top: 10vh;
+  }
+}
+// @media screen and (min-width: 750px) {
+//   .main {
+//     padding-top: 10vh;
+//   }
+// }
+
+@media screen and (min-width: 1024px) {
+  .main {
+    padding-top: 8vh;
+  }
+}
