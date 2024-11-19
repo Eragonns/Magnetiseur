@@ -1,6 +1,5 @@
 const allowedOrigins = [
-  "https://magnetiseur-9h887359n-lecomtes-projects.vercel.app",
-  "*"
+  "https://magnetiseur-9h887359n-lecomtes-projects.vercel.app"
 ];
 
 const corsOptionsDelegate = (origin, callback) => {
