@@ -85,3 +85,16 @@
     margin-block-end: 0;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .temoignages_bloc {
+    inline-size: 70%;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .temoignages_bloc {
+    inline-size: 50%;
+  }
+}
