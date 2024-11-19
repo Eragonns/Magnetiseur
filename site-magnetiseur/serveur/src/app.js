@@ -32,7 +32,7 @@ app.use(
 app.use(mongoSanitize());
 app.use(
   cors({
-    origin: "magnetiseur-cemk3y5mb-lecomtes-projects.vercel.app",
+    origin: "https://magnetiseur-cemk3y5mb-lecomtes-projects.vercel.app",
     credentials: true
   })
 );
