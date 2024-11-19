@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/.well-known/:path*",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
+}
