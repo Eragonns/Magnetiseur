@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "sass src/styles/main.scss dist/styles/main.css && vite build",
+    "build": "npm run build:sass && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:sass": "sass SASS/main.scss public/styles/main.css"
   },
   "dependencies": {
     "axios": "^1.7.7",

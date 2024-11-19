@@ -1,4 +1,10 @@
 {
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
   "redirects": [
     {
       "source": "/.well-known/vercel/microfrontend-routing",
