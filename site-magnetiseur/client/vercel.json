@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/.well-known/:path*",
+      "source": "/.well-known/vercel/microfrontend-routing",
       "destination": "/",
       "permanent": false
     }
