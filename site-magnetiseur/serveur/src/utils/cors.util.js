@@ -1,5 +1,4 @@
 const allowedOrigins = [
-  "https://magnetiseur-dg7e2o9gk-lecomtes-projects.vercel.app",
   "https://magnetiseur.netlify.app",
   "http://localhost:5173"
 ];
