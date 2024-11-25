@@ -34,14 +34,14 @@
 .seanceADistance_text {
   font-family: $font-primary;
   inline-size: 80%;
-  font-size: 1.1em;
+  font-size: 1.5em;
   line-height: 1.4;
   text-align: center;
   margin-inline: auto;
   margin-block-end: 2em;
   background: linear-gradient(to right, $black, rgba(122, 122, 122, 0.568));
   -webkit-background-clip: text;
-  color: transparent;
+  color: $darkBlue;
 }
 
 .seanceADistance_contact {

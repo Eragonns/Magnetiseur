@@ -5,8 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $darkBlue;
-  color: $white;
+  background-color: $white;
+  color: $black;
   z-index: 10;
 }
 .navbar_logo {
@@ -39,7 +39,7 @@
     block-size: 8vh;
   }
   .navbar_title {
-    font-size: 1.3em;
+    font-size: 20px;
   }
   .navbar_liens {
     display: flex;
@@ -47,7 +47,8 @@
     padding-inline-end: 1em;
   }
   .navbar_lien {
-    color: $white;
+    font-size: 1.5em;
+    color: $black;
     cursor: pointer;
     transition: $transition;
   }

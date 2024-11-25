@@ -1,4 +1,3 @@
-// import axiosInstance from "../utils/axiosInstance.js";
 import axiosRender from "../utils/axiosRender.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -71,8 +70,10 @@ const Home = () => {
       >
         {temoignages.map((temoignage, index) => (
           <div key={temoignage._id} className="carousel_container">
-            <h2>{temoignage.firstName},</h2>
-            <h3 translate="no">{temoignage.city}</h3>
+            <h2 className="carousel_title">{temoignage.firstName},</h2>
+            <h3 translate="no" className="carousel_title">
+              {temoignage.city}
+            </h3>
             <p
               ref={(message) => (messageRef.current[index] = message)}
               className={`carousel_text carousel_text ${

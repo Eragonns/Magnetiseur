@@ -65,8 +65,7 @@ const Contact = () => {
     };
 
     try {
-      const response = await axiosInstance.post("/send-email", contactData);
-      console.log("reponse de l'api:", response);
+      await axiosInstance.post("/send-email", contactData);
 
       await Swal.fire({
         icon: "success",

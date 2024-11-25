@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosRender from "../utils/axiosRender.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { FaPlay, FaPause } from "react-icons/fa";
@@ -24,7 +24,7 @@ const Temoignages = () => {
     setIsSubmitting(true);
 
     try {
-      await axiosInstance.post("/temoignages", temoignagesData);
+      await axiosRender.post("/temoignages", temoignagesData);
       await Swal.fire({
         icon: "success",
         title: "Témoignage ajouté avec succès !",
@@ -48,7 +48,7 @@ const Temoignages = () => {
   useEffect(() => {
     const loadTemoignages = async () => {
       try {
-        const response = await axiosInstance.get("/temoignages");
+        const response = await axiosRender.get("/temoignages");
 
         setTemoignages(response.data.temoignages);
       } catch (error) {
@@ -141,8 +141,10 @@ const Temoignages = () => {
       >
         {temoignages.map((temoignage, index) => (
           <div key={temoignage._id}>
-            <h2>{temoignage.firstName},</h2>
-            <h3 translate="no">{temoignage.city}</h3>
+            <h2 className="carousel_title">{temoignage.firstName},</h2>
+            <h3 translate="no" className="carousel_title">
+              {temoignage.city}
+            </h3>
             <p
               ref={(message) => (messageRef.current[index] = message)}
               className={`carousel_text carousel_text ${

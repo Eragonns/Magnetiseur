@@ -15,11 +15,13 @@
 .magnetisme_text {
   font-family: $font-primary;
   inline-size: 80%;
-  font-size: 1.1em;
+  font-size: 1.5em;
   line-height: 1.4;
   text-align: center;
   margin-inline: auto;
   margin-block-end: 2em;
+  max-height: none;
+  overflow: visible;
 }
 
 .magnetisme_lists {
@@ -35,21 +37,25 @@
   text-align: center;
 }
 
-.magnetisme_lists_stitle {
-  text-align: center;
-}
-
 .magnetisme_lists_text {
   font-family: $font-primary;
   line-height: 1.5;
   text-align: center;
+  font-size: 1.4em;
 }
 
 .magnetisme_text2 {
-  font-size: 0.9em;
+  font-size: 1.2em;
   text-align: center;
   padding-inline: 1em;
   margin-block-end: 1em;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px) {
+  .magnetisme_text {
+    max-height: 200px;
+    overflow-y: auto;
+  }
 }
 
 @media screen and (max-width: 900px) {

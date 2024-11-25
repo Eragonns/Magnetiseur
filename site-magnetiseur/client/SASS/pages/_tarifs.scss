@@ -22,6 +22,7 @@
 }
 
 .tarifs_article {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -38,10 +39,12 @@
 }
 .tarifs_articleTitle {
   text-align: center;
-  padding-block-end: 0.5em;
+  padding-block-end: 1.5em;
 }
 .tarifs_articleText {
   padding-block-end: 0.6em;
+  position: absolute;
+  bottom: 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -52,5 +55,14 @@
   }
   .tarifs_article {
     max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .tarifs_articles {
+    display: grid;
+    grid-template-columns: repeat(2, 20em);
+    justify-content: center;
+    column-gap: 1em;
   }
 }
