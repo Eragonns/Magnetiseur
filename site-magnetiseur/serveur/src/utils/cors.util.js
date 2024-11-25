@@ -4,12 +4,15 @@ const allowedOrigins = [
   "http://localhost:5173"
 ];
 
-const corsOptionsDelegate = (origin, callback) => {
-  if (!origin || allowedOrigins.includes(origin)) {
-    callback(null, true);
-  } else {
-    callback(new Error("Non autorisé par CORS"));
-  }
+const corsOptionsDelegate = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Non autorisé par CORS"));
+    }
+  },
+  credentials: true
 };
 
-export { allowedOrigins, corsOptionsDelegate };
+export { corsOptionsDelegate };
