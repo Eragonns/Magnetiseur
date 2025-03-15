@@ -49,7 +49,7 @@ const Footer = () => {
         <FaFacebook />
       </a>
       <p>
-        Copyright &#169; 2024 Didier Lefebvre Praticien en Magnétisme. Tous
+        Copyright &#169; 2025 Didier Lefebvre Praticien en Magnétisme. Tous
         droits réservés.
       </p>
     </footer>

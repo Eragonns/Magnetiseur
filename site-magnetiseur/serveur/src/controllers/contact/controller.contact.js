@@ -33,9 +33,9 @@ const submitContactForm = async (req, res, next) => {
        `;
 
     const mailOptions = {
-      from: "lecomtefranck18@gmail.com",
+      from: "adresse email", // adresse email du destinataire
       to: email,
-      replyTo: "lecomtefranck18@gmail.com",
+      replyTo: "adresse email", // adresse email du destinataire
       subject: `Nouveau message de ${firstName} ${lastName}`,
       text: mailText.trim(),
       html: `
